@@ -9,29 +9,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&family=Numans&display=swap"
         rel="stylesheet">
     <title>Carrinho de compras</title>
+    <script src="script.js"></script>
 </head>
 <body>
     <main class="container__principal">
 
         <img src="/img/bag.png" alt="Imagem de uma sacolinha de compras" class="img">
         <form class="interacao">
-            <input type="text" id="nomeItem" class="inserir__item" placeholder="Digite o item que deseja adicionar">
-            <button type="button" class="botao__adicionar" id="adicionarItem">Salvar item</button>
+            <input type="text" id="inserirNomeItem" class="inserir__item" placeholder="Digite o item que deseja adicionar">
+            <button type="button" class="botao__adicionar" onclick="adicionarItem()">Salvar item</button>
         </form>
         <div class="lista__de__compras">
         <h2 class="lista__titulo">Lista de Compras</h2>
         <hr class="divisor">
         <ul class="lista__carrinho" id="lista">
-            <li class="lista__item vazia invisivel">
+            <li class="lista__item" id="mensagemListaVazia">
                 Sua lista está vazia. Adicione itens a ela para não esquecer nada na próxima compra!
             </li>
-            <li class="lista__item">
-                <div class="item__container">
-                    <div class="item"><input type="checkbox" id="itemAdicionado" onclick="removerItem()"><p class="nome__item">lorem ipsum</p></div>
-                    <div class="opcoes__lista"><button class="opcao__lista"><img src="img/delete.svg" onclick="apagarItem()"></button><button class="opcao__lista"><img src="img/edit.svg" onclick="editarItem()"></button></div>
-                </div>
-                <span class="data__horario">Segunda-feira (31/10/2022) às 08:30</span>
-            </li>
+
 
         </ul>
         </div>
@@ -39,18 +34,13 @@
             <h2 class="lista__titulo">Comprado</h2>
             <hr class="divisor">
             <ul class="lista__carrinho" id="listaComprado">
-                <li class="lista__item">
-                    <div class="item__container">
-                        <div class="item comprado"><input type="checkbox" id="itemAdicionado" onclick="removerItem()"><p class="nome__item">lorem ipsum</p></div>
-                        <div class="opcoes__lista"><button class="opcao__lista"><img src="img/delete.svg" onclick="apagarItem()"></button><button class="opcao__lista"><img src="img/edit.svg" onclick="editarItem()"></button></div>
-                    </div>
-                    <span class="data__horario">Segunda-feira (31/10/2022) às 08:30</span>
-                </li>
+
             </ul>
             </div>
     </main>
     <footer class="rodape">
         <span class="rodape__texto">Desenvolvido por Davi Winston, estudante Alura. Projeto fictício sem fins comerciais.</span>
     </footer>
+    
 </body>
 </html>
