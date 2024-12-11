@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&family=Numans&display=swap"
-        rel="stylesheet">
-    <title>Carrinho de compras</title>
-    <script src="script.js"></script>
-</head>
-<body>
-    <main class="container__principal">
 
-        <img src="/img/bag.png" alt="Imagem de uma sacolinha de compras" class="img">
-        <form class="interacao">
-            <input type="text" id="inserirNomeItem" class="inserir__item" placeholder="Digite o item que deseja adicionar">
-            <button type="button" class="botao__adicionar" onclick="adicionarItem()">Salvar item</button>
-        </form>
-        <div class="lista__de__compras">
-        <h2 class="lista__titulo">Lista de Compras</h2>
-        <hr class="divisor">
-        <ul class="lista__carrinho" id="lista">
-            <li class="lista__item" id="mensagemListaVazia">
-                Sua lista está vazia. Adicione itens a ela para não esquecer nada na próxima compra!
-            </li>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Compras</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&family=Numans&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="styles/styles.css"/>
+    </head>
 
+    <body>
+        <main class="container__principal">
+            <img src="img/bag.png" alt="sacola de compras" class="img">
+            <form>
+                <input class="input-item" id="inserirNomeItem" type="text" placeholder="Digite o item que deseja adicionar">
+                <button class="button-item" id="adicionar-item">Salvar item</button>
+            </form>
 
-        </ul>
-        </div>
-        <div class="lista__de__compras invisivel">
-            <h2 class="lista__titulo">Comprado</h2>
-            <hr class="divisor">
-            <ul class="lista__carrinho" id="listaComprado">
+            <div class="container-lista">
+                <div class="container__lista__tipo" id="compraAFazer">
+                    <h2 class="lista__titulo">Lista de compras</h2>
+                    <hr class="divisor">
 
-            </ul>
+                    <ul class="lista-de-compras" id="lista-de-compras">
+                        <li class="item-da-lista" id="listaTextoVazio">
+                            <p>Sua lista está vazia. Adicione itens a ela para não esquecer nada na próxima compra!</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="container__lista__tipo invisivel" id="itensComprados">
+                    <h2 class="lista__titulo">Comprado</h2>
+                    <hr class="divisor">
+                    <ul class="lista-de-compras" id="lista-de-compras-compradas">
+                    </ul>
+                </div>
             </div>
-    </main>
-    <footer class="rodape">
-        <span class="rodape__texto">Desenvolvido por Davi Winston, estudante Alura. Projeto fictício sem fins comerciais.</span>
-    </footer>
-    
-</body>
+        </main>
+        <footer class="rodape">
+            <span class="rodape__texto">Desenvolvido por Davi Winston,<br> estudante Alura.</span>
+            <span class="rodape__texto">Projeto fictício sem fins comerciais.</span>
+        </footer>
+    </body>
+    <script src="script.js"></script>
 </html>
