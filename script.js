@@ -1,4 +1,4 @@
-import { formularLista } from "./js/formularLista.js";
+import { gerenciarLista } from "./js/gerenciarLista.js";
 
 const botaoSalvarItem = document.getElementById("adicionar-item");
-botaoSalvarItem.addEventListener("click", formularLista);
+botaoSalvarItem.addEventListener("click", gerenciarLista);

@@ -1,4 +1,4 @@
-export function obterDataAtual(locale = "pt-BR") {
+function obterDataAtual(locale = "pt-BR") {
     const dataAtual = new Date();
     const dia = dataAtual.toLocaleDateString(locale, { weekday: "long" });
     const diaValor = dataAtual.getDate();
@@ -8,3 +8,10 @@ export function obterDataAtual(locale = "pt-BR") {
     const minutos = dataAtual.getMinutes().toString().padStart(2, "0");
     return `${dia} (${diaValor}/${mes}/${ano}) às ${horas}:${minutos}`;
 };
+
+export function criarDataHorario() {
+    const dataHorario = document.createElement("span");
+    dataHorario.innerText = obterDataAtual();
+    dataHorario.classList.add("texto-data");
+    return dataHorario;
+}
