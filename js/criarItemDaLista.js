@@ -63,6 +63,7 @@ export function criarItemDaLista(item){
         botaoRemover: botaoRemover,
         labelCheckbox: labelCheckbox,
         imagemRemoverId: imagemRemover.id,
+        imagemEditarId: imagemEditar.id,
         botaoEditar: botaoEditar
     };
 }

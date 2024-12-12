@@ -35,7 +35,7 @@ export function gerenciarLista(evento) {
     }
 
     const novoItem = criarItemDaLista(item);
-    const { itemDaLista, botaoRemover, botaoEditar, labelCheckbox, imagemRemoverId, nomeDoItem } = novoItem;
+    const { itemDaLista, botaoRemover, botaoEditar, labelCheckbox, imagemRemoverId, imagemEditarId, nomeDoItem } = novoItem;
     listaDeCompras.appendChild(itemDaLista);
 //Botão Remover
     botaoRemover.addEventListener("click", function () {
@@ -54,39 +54,46 @@ export function gerenciarLista(evento) {
     });
 //botão Editar
     botaoEditar.addEventListener("click", function () {
-
+        let novoItem = prompt("Digite o novo nome do item:")
+        if (!novoItem || !novoItem.trim()) {
+            alert("Insira um nome válido se quiser alterar o nome.");
+            return;
+        }
+        let idReferente = imagemEditarId.replace("editar-", "");
+        const editarItem = document.getElementById(`Item-${idReferente}`);
+        editarItem.innerText = novoItem;
     });
 //checkbox
-labelCheckbox.addEventListener("click", function (evento) {
-    const checkboxInput = evento.currentTarget.querySelector(".input-checkbox");
-    const checkboxCustomizado = evento.currentTarget.querySelector(".checkbox-customizado");
+    labelCheckbox.addEventListener("click", function (evento) {
+        const checkboxInput = evento.currentTarget.querySelector(".input-checkbox");
+        const checkboxCustomizado = evento.currentTarget.querySelector(".checkbox-customizado");
 
-    if (checkboxInput.checked) {
-        checkboxCustomizado.classList.add("checked");
-        listaComprados.appendChild(itemDaLista);
-        contarItens();
-        nomeDoItem.style.textDecoration = "line-through";
-        listaCompradosContainer.classList.remove("invisivel");
-        botaoEditar.classList.add("invisivel");
-        if (!itemDaLista.querySelector(".texto-data")) {
-            const dataHorario = criarDataHorario();
-            itemDaLista.appendChild(dataHorario);
-        }
-    } else {
-        checkboxCustomizado.classList.remove("checked");
-        botaoEditar.classList.remove("invisivel");
-        nomeDoItem.style.textDecoration = "none";
-        const dataHorarioExistente = itemDaLista.querySelector(".texto-data");
-        if (dataHorarioExistente) {
-            dataHorarioExistente.remove();
-        }
+        if (checkboxInput.checked) {
+            checkboxCustomizado.classList.add("checked");
+            listaComprados.appendChild(itemDaLista);
+            contarItens();
+            nomeDoItem.style.textDecoration = "line-through";
+            listaCompradosContainer.classList.remove("invisivel");
+            botaoEditar.classList.add("invisivel");
+            if (!itemDaLista.querySelector(".texto-data")) {
+                const dataHorario = criarDataHorario();
+                itemDaLista.appendChild(dataHorario);
+            }
+        } else {
+            checkboxCustomizado.classList.remove("checked");
+            botaoEditar.classList.remove("invisivel");
+            nomeDoItem.style.textDecoration = "none";
+            const dataHorarioExistente = itemDaLista.querySelector(".texto-data");
+            if (dataHorarioExistente) {
+                dataHorarioExistente.remove();
+            }
 
-        listaDeCompras.appendChild(itemDaLista);
-        contarItens();
-        if (contadorItensComprados === 0) {
-            listaCompradosContainer.classList.add("invisivel");
+            listaDeCompras.appendChild(itemDaLista);
+            contarItens();
+            if (contadorItensComprados === 0) {
+                listaCompradosContainer.classList.add("invisivel");
+            }
         }
-    }
 });
 
     
